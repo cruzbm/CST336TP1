@@ -45,6 +45,33 @@
         
         <!-- initial print of available brands -->
         <?=getBrands()?>
+          <?=displayImgs()?>
+        
+        <fieldset>
+            <legend>Filter Options</legend>
+            Price     
+            <select name ="priceFilter">
+                 <option value="high">High to Low</option>
+                 <option value="low">Low to High</option>
+            </select>
+            
+                Color         
+            <select name ="colorFilter">
+                 <option value="black">Black</option>
+                 <option value="white">White</option>
+                 <option value="red">Red</option>
+            </select>
+                      Style         
+            <select name ="styleFilter">
+                 <option value="sneakers">Black</option>
+                 <option value="boots">Boots</option>
+                 <option value="flats">Flats</option>
+            </select>
+            
+            
+            
+        </fieldset>
+        
         
     </body>
 </html>
