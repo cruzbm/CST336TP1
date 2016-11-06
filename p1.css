@@ -1,0 +1,60 @@
+
+    h1{
+        color: white;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 3em;
+    }
+    
+    nav{
+        text-align: center;
+    }
+    
+    nav a{
+        color: white;
+        font-family: sans-serif;
+        font-size: 1.5em;
+        padding: 6px;
+        background: black;
+        border-color: white;
+    }
+    
+    a:hover{
+        background-color: Grey;
+    }
+    
+    footer{
+        text-align: center;
+        color: #636363;
+    }
+    
+    body{
+        font-family: georgia !important;
+        margin: 0 auto;
+        background-image: url("homebg.jpg");
+    }
+    
+    main{
+        text-align: center;
+        color: white;
+        width: 900px;
+        margin: 0 auto;
+    }
+    
+    div{
+        color: white;
+        width: 800px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    
+    div a{
+        color: white;
+        padding: 2px;
+        background: black;
+        border-color: white;
+    }
+    #home{
+        border: 3px black solid;
+    }
+    
