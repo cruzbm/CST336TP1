@@ -35,6 +35,13 @@
     }
     
     
+    function filterShoes(){
+        //NEEDS TO PRINTER FILTER BASED ON SQL FUNCTIONS
+        //ALSO NEEDS TO ADD IN CHECKBOX BESIDE EACH OPTION DISPLAYED
+        //WITH BUTTON TO ADD TO CART
+        
+    }
+    
 ?>
 
 
@@ -54,7 +61,7 @@
         <!-- initial print of available brands -->
         <?=getBrands()?>
           <?=displayImgs()?>
-        <form>
+        <form name="filter">
             
         <!---------------------Menu Bar------------------------------------->    
         <fieldset>
@@ -82,8 +89,16 @@
             <input type="submit" name="Submit" value="Apply" />
         </fieldset>
         <!------------------------------------------------------------------>
-        
         </form>
         
+        <!------------ WILL DISPLAY OPTIONS HERE ----------------------------->
+        <?php
+        
+        if(isset($_GET['filter'])){
+            filterShoes(); //NEED TO CREATE FUNCTION
+        }
+        
+        ?>
+        <!------------------------------------------------------------------>
     </body>
 </html>
