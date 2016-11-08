@@ -101,7 +101,7 @@ function makeTable(){
             }
             
             echo "<td> ";
-            echo "<img src='img/sm" .$id[$index]. ".jpg'/>";
+            echo "<img src='../img/sm" .$id[$index]. ".jpg'/>";
             echo "<br />"; 
             echo $device[$index] . "<br /> $" . $price[$index];
             echo "<input type='checkbox' name= 'stack[]'" . "value =" . $id[$index] . ">";

@@ -58,7 +58,7 @@ function showInfo(){
     echo "<div><table border = '1' align = 'center'>";
             foreach($record as $records){
                 echo "<tr><td>";
-                echo "<img src='img/sm" .$records['deviceId']. ".jpg'/>";
+                echo "<img src='../img/sm" .$records['deviceId']. ".jpg'/>";
                 echo "<br />";
                 echo $records['name'];
                 echo "<br />";
