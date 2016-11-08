@@ -1,46 +1,86 @@
 <?php
 session_start();
 
+$sel = array();
+$sel = $_SESSION['info'];
+$_SESSION['add'] = array();
 include 'dataCon.php';
 
 $dbConn = getDataBaseConnection(Project_1);
 
-function showInfo(){
+
+if(isset($_POST['add'])){
     
-    global $dbConn;
     
-    echo $_SESSION['getDevice'];
-    
-    if ($_SESSION['getDevice'] == 1)
-    {
-        echo  "<img src='img/sm1.jpg'/>";
-        echo $_SESSION['getDevice'];
-        echo "<br />";
-        echo "Lorem ipsum";
-    }
-    
-    else if ($_SESSION['getDevice'] == 2)
-    {
-        echo  "<img src='img/sm2.jpg'/>";
-        echo $_SESSION['getDevice'];
-        echo "<br />";
-        echo "Lorem ipsum";
-    }
+
+    echo "<div>Your item(s) have been added to your cart!</div>";
 }
 
-function add(){
+
+
+
+function showInfo(){
     
-    if(isset($_GET['add'])){
+    global $sel;
+    global $dbConn;
+    
+    $start = 0;
+    
+            
+    $sql = "SELECT DISTINCT * FROM device
+    NATURAL JOIN deviceInfo";
+            
+            
+        for($i=0; $i<30; $i++){
         
-        echo "Item added to cart.";
+        if(in_array($i, $sel)){
+            
+            if($start == 0){
+            
+                $sql .= " WHERE deviceId = '" . $i . "'";
+                $start++;
+            }
+            
+            else{
+                $sql .= " OR deviceId = '" . $i . "'";
+                
+            }
+            
+        }
         
         
-    }
+    }    
+
+    
+            $statement = $dbConn->prepare($sql);
+            $statement->execute();
+            $record = $statement->fetchAll(PDO::FETCH_ASSOC);
+    echo "<div><table border = '1' align = 'center'>";
+            foreach($record as $records){
+                echo "<tr><td>";
+                echo "<img src='img/sm" .$records['deviceId']. ".jpg'/>";
+                echo "<br />";
+                echo $records['name'];
+                echo "<br />";
+                echo "Price: $" . $records['price'];
+                echo "<br />";                
+                echo "Manufacturer: " . $records['manufactName'];
+                echo "<br />";
+                echo $records['feature'];
+                echo "<br />";
+                echo "Condition: " . $records['deviceCondition'];
+                echo "<br /></td></tr>";
+        
+            }  
+    
+    echo "</div>";
+
     
     
     
     
 }
+
 
 
 
@@ -48,21 +88,28 @@ function add(){
 
 <!DOCTYPE html>
 <html>
+    <link rel = "stylesheet" href = "tp1.css" type = "text/css" />
     <head>
         <title> Online Phone Catalog</title>
-         <link rel="stylesheet" href="tp1.css" type="text/css" />
     </head>
+    <h1> Device Info</h1>
+    <nav a>
+        <a href="main.php" float:right> Main Menu </a>
+        <a href="shopCart.php" float:right> Cart </a>
+        <a href="login.php" float:right> Log out </a>
+        
+    </nav>
+    
     <body>
-        <h1> Shopping Cart</h1>
+        
             <?=showInfo()?>
-        <form method = "get">
+        <form method = "POST">
             
-            <button type="submit" value="add" name = "add">Add to cart</button>
+           <div><button type="submit" value="add" name = "add">Add to cart</button></div>
             <br />
             
-            <?=add()?>
             
         </form>
-
+    
     </body>
 </html>

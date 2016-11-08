@@ -35,3 +35,23 @@
                     text-align: center;
                     border-color: solid black;
                 }
+                
+                nav a:hover{
+                    
+                    
+                    color:blue;
+                    
+                    
+                    
+                }
+                
+                nav a{
+                    
+                    font-size: 3em;
+                    text-align:center;
+                    margin: 0 auto;
+                    display:inline-block;
+                    color:black;
+                    
+                    
+                }
