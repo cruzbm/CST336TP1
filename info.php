@@ -96,6 +96,7 @@ function showInfo(){
     <nav a>
         <a href="main.php" float:right> Main Menu </a>
         <a href="shopCart.php" float:right> Cart </a>
+        <a href="UserStory.docx"> User Story</a>
         <a href="login.php" float:right> Log out </a>
         
     </nav>
